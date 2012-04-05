@@ -64,7 +64,7 @@
 },
 {
     "title": "Very Best of (Only The Beginning)",
-    "arist": "Chicago",
+    "artist": "Chicago",
     "tracks": [{
         "title": "Make Me Smile",
         "url": "library/mp3/song.mp3"
@@ -114,7 +114,7 @@
         "url": "library/mp3/song.mp3"
     },
     {
-        "title": "Feelin' Stronger Every Day",
+        "title": "Feelin Stronger Every Day",
         "url": "library/mp3/song.mp3"
     },
     {
@@ -158,7 +158,7 @@
         "url": "library/mp3/song.mp3"
     },
     {
-        "title": "Hard To Say I'm Sorry, Get Away",
+        "title": "Hard To Say Im Sorry, Get Away",
         "url": "library/mp3/song.mp3"
     },
     {
@@ -198,7 +198,7 @@
         "url": "library/mp3/song.mp3"
     },
     {
-        "title": "Chasin' The Wind",
+        "title": "Chasin The Wind",
         "url": "library/mp3/song.mp3"
     }]
 }]

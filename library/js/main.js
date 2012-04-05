@@ -31,7 +31,7 @@
 
 	window.LibraryView = Backbone.View.extend({
 		tagName: 'section',
-		className: 'libray',
+		className: 'library',
 		initialize: function() {
 			_.bindAll(this, 'render');
 			this.template = _.template($('#library-template').html());

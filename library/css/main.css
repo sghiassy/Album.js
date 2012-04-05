@@ -1,3 +1,39 @@
 body {
-	background-color: red;
+	font-family: 'Antic Slab', serif;
+	font-size: 19px;
+}
+
+#container {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.library h1 {
+	font-family: 'Oxygen', sans-serif;
+	font-size: 30px;
+}
+
+.albums {
+	text-align: left;
+}
+
+.artist {
+	margin-top: 20px;
+	float: left;
+	margin-left: 30px;
+}
+
+.album-title, .artist-name {
+	font-weight: bold;
+}
+
+.artist-name {
+	color: #666;
+	font-size: 24px;
+}
+
+.tracks {
+	margin-left: 20px;
 }

@@ -6,14 +6,17 @@
 
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
 	<link rel="stylesheet" href="library/css/main.css" media="screen, projection">
+	<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Antic+Slab' rel='stylesheet' type='text/css'>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
 	<script type="text/template" id="album-template">
-		<span class="album-title"><%= title %></span>&nbsp;&nbsp;
 		<span class="artist-name"><%= artist %></span>
+		<span class="album-title"><%= title %></span>
+		
 		<ol class="tracks">
 			<% _.each(tracks, function(track) { %>
 			<li><%= track.title %></li>
@@ -26,8 +29,8 @@
 	</script>
 </head>
 <body>
-	<div id="container">
-    </div>
+	<section id="container">
+    </section>
 
     <!-- JS Scripts -->
 	<script type="text/javascript" src="http://modernizr.com/downloads/modernizr.js"></script>
