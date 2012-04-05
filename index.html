@@ -14,6 +14,8 @@
 	<![endif]-->
 
 	<script type="text/template" id="album-template">
+		<button class="queue add"><img src="library/img/add.png" /></button>
+		<button class="queue remove"><img src="library/img/remove.png" /></button>
 		<span class="artist-name"><%= artist %></span>
 		<span class="album-title"><%= title %></span>
 		
@@ -25,6 +27,16 @@
 	</script>
 	<script type="text/template" id="library-template">
 		<h1>Music Library</h1>
+		<ul class="albums"></ul>
+	</script>
+	<script type="text/template" id="playlist-template">
+		<h1>Playlist</h1>
+		<nav>
+			<button class="control play">Play</button>
+			<button class="control pause">Pause</button>
+			<button class="control prev">Prev</button>
+			<button class="control next">Next</button>
+		</nav>
 		<ul class="albums"></ul>
 	</script>
 </head>

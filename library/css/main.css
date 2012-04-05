@@ -1,27 +1,41 @@
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
 body {
-	font-family: 'Antic Slab', serif;
-	font-size: 19px;
+	font-family: "Helvetica Neue", "Helvetica", "Calibri", "sans";
+	font-size: 19px;	
+    margin: 0px;
+    padding: 0px;
 }
 
 #container {
-	width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
+	height: auto;
+ 	min-height: 100%;
+	position: relative;
 }
 
 .library h1 {
-	font-family: 'Oxygen', sans-serif;
 	font-size: 30px;
 }
 
 .albums {
-	text-align: left;
+    list-style: none;
+    padding: 0 2%;
 }
 
-.artist {
+.album {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+    width: 80%;
+    margin: 0;
+    padding: 1em 2em;
+}
+
+.library .artist {
 	margin-top: 20px;
-	float: left;
 	margin-left: 30px;
 }
 
@@ -36,4 +50,117 @@ body {
 
 .tracks {
 	margin-left: 20px;
+}
+
+.library .queue.add {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.queue.remove {
+	display: none;
+    cursor: pointer;
+}
+
+.library .tracks {
+	display: none;
+}
+
+.playlist {
+    position: absolute;
+    top: 0px;
+    width: 30%;
+    padding: 2% 3%;
+    height: 100%;
+    background-color: #3D4047;
+    overflow: auto;
+}
+
+.playlist h1 {
+	font-family: arial;
+	font-size: 31px;
+	color: #fff;
+	font-weight: bold;
+}
+
+nav {
+    width: 180px;
+    margin: auto;
+    padding: 0;
+    margin: 12px 0px 12px 37px;
+}
+
+nav button.control {
+    text-indent: -9999px;
+    width: 55px;
+    height: 50px;
+    border: 0;
+    padding: 10px;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+nav button.play {
+    background: url('../img/control_play.png') center no-repeat;
+}
+
+nav button.play:hover {
+    background: url('../img/control_play_hover.png') center no-repeat;
+}
+
+nav button.pause {
+    background: url('../img/control_pause.png') center no-repeat;
+}
+
+nav button.pause:hover {
+    background: url('../img/control_pause_hover.png') center no-repeat;
+}
+
+nav button.prev {
+    background: url('../img/control_start.png') center no-repeat;
+}
+
+nav button.prev:hover {
+    background: url('../img/control_start_hover.png') center no-repeat;
+}
+
+nav button.next {
+    background: url('../img/control_end.png') center no-repeat;
+}
+
+nav button.next:hover {
+    background: url('../img/control_end_hover.png') center no-repeat;
+}
+
+.playlist .queue.add {
+    display: none;
+}
+
+.playlist .queue.remove {
+    display: block;
+    background: none;
+    border: none;
+    float: left;
+    margin-top: 2px;
+}
+
+.playlist .album.current {
+}
+
+.playlist .album.current .tracks .current {
+}
+
+.library {
+	margin-left: 36%;
+	padding: 0.1em 2%;
+}
+
+.library .queue.remove {
+    display: none;
+}
+
+.library .tracks {
+    display: none;
 }
