@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8" />
+	<title>Album.js</title>
+
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
-	<link rel="stylesheet" type="text/css" href="library/css/main.css">
+	<link rel="stylesheet" href="library/css/main.css" media="screen, projection">
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<script type="text/template" id="album-template">
+		<span class="album-title"><%= title %></span>&nbsp;&nbsp;
+		<span class="artist-name"><%= artist %></span>
+		<ol class="tracks">
+			<% _.each(tracks, function(track) { %>
+			<li><%= track.title %></li>
+			<% }); %>
+		</ol>
+	</script>
+	<script type="text/template" id="library-template">
+		<h1>Music Library</h1>
+		<ul class="albums"></ul>
+	</script>
 </head>
 <body>
+	<div id="container">
+    </div>
+
+    <!-- JS Scripts -->
+	<script type="text/javascript" src="http://modernizr.com/downloads/modernizr.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
 	<script type="text/javascript" src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+	<script type="text/javascript" src="library/js/main.js"></script>
 </body>
 </html>
