@@ -10,6 +10,8 @@
 		url: 'albums.json' //hardcoding REST API for now
 	});
 
+	window.library = new Albums();
+
 	window.AlbumView = Backbone.View.extend({
 		tagName: 'li',
 		className: 'artist',
@@ -52,9 +54,30 @@
 			return this;
 		}
 	});
-})(jQuery);
 
-library = new Albums();
-libraryView = new LibraryView({collection: library});
-$('#container').append(libraryView.render().el); 
-library.fetch();
+	window.BackboneTunes = Backbone.Router.extend({
+		routes: {
+			'' : 'home',
+			'blank': 'blank'
+		},
+		initialize: function() {
+			this.libraryView = new LibraryView({
+				collection: window.library
+			});
+		},
+		home: function() {
+			var $container = $('#container');
+			$container.empty();
+			$container.append(this.libraryView.render().el);
+		},
+		blank: function() {
+			$('#container').empty();
+			$('#container').text('blank');
+		}
+	});
+
+	$(function() {
+		window.App = new BackboneTunes();
+		Backbone.history.start();
+	});
+})(jQuery);
