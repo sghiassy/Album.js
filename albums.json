@@ -1,204 +1,77 @@
-[{
-    "title": "The Eminem Show",
-    "artist": "Eminem",
-    "tracks":       [{
-        "title": "When the Music Stops",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Soldier",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "White America",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Business",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Cleanin Out My Closet",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Square Dance",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Say Goodbye Hollywood",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Drips",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Without Me",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Sing for the Moment",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Superman",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Hailie's Song",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "'Till I Collapse",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "My Dad's Gone Crazy",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "The Showdown ft. Dr. Dre",
-        "url": "library/mp3/song.mp3"
-    }]
-},
+[
 {
-    "title": "Very Best of (Only The Beginning)",
-    "artist": "Chicago",
-    "tracks": [{
-        "title": "Make Me Smile",
-        "url": "library/mp3/song.mp3"
+	"title": "TV Show Theme Songs",
+	"artist": " ",
+	"tracks": [	{
+        "title": "Different Strokes",
+        "url": "library/mp3/tv/Different-Strokes.mp3"
     },
     {
-        "title": "25 Or 6 To 4",
-        "url": "library/mp3/song.mp3"
+        "title": "Growing Pains",
+        "url": "library/mp3/tv/Growing-Pains.mp3"
     },
     {
-        "title": "Does Anybody Really Know What Time It Is",
-        "url": "library/mp3/song.mp3"
+        "title": "Sesame Street",
+        "url": "library/mp3/tv/Sesame-Street.mp3"
     },
     {
-        "title": "Beginnings",
-        "url": "library/mp3/song.mp3"
+        "title": "I Dream of Jeannie",
+        "url": "library/mp3/tv/I-Dream-of-Jeannie.mp3"
     },
     {
-        "title": "Questions 67 And 68",
-        "url": "library/mp3/song.mp3"
+        "title": "Ren and Stimpy",
+        "url": "library/mp3/tv/Ren-and-Stimpy.mp3"
     },
     {
-        "title": "I'm A Man",
-        "url": "library/mp3/song.mp3"
+        "title": "The Fresh Prince of Bel Air",
+        "url": "library/mp3/tv/The-Fresh-Prince-of-Bel-Air.mp3"
     },
     {
-        "title": "Colour My World",
-        "url": "library/mp3/song.mp3"
+        "title": "Threes Company",
+        "url": "library/mp3/tv/Threes-Company.mp3"
     },
     {
-        "title": "Free",
-        "url": "library/mp3/song.mp3"
+        "title": "The Price Is Right",
+        "url": "library/mp3/tv/The-Price-Is-Right.mp3"
     },
     {
-        "title": "Lowdown",
-        "url": "library/mp3/song.mp3"
+        "title": "Star Trek: The Next Generation",
+        "url": "library/mp3/tv/Star-Trek-The-Next-Generation.mp3"
     },
     {
-        "title": "Saturday In The Park",
-        "url": "library/mp3/song.mp3"
+        "title": "The Jetsons",
+        "url": "library/mp3/tv/The-Jetsons.mp3"
     },
     {
-        "title": "Dialogue (Part I & Ii)",
-        "url": "library/mp3/song.mp3"
+        "title": "Charlies Angels",
+        "url": "library/mp3/tv/Charlies-Angels.mp3"
     },
     {
-        "title": "Just You 'n' Me",
-        "url": "library/mp3/song.mp3"
+        "title": "Benny Hill",
+        "url": "library/mp3/tv/Benny-Hill.mp3"
     },
     {
-        "title": "Feelin Stronger Every Day",
-        "url": "library/mp3/song.mp3"
+        "title": "Miami Vice",
+        "url": "library/mp3/tv/Miami-Vice.mp3"
     },
     {
-        "title": "(I've Been) Searchin' So Long",
-        "url": "library/mp3/song.mp3"
+        "title": "Full House",
+        "url": "library/mp3/tv/Full-House.mp3"
     },
     {
-        "title": "Wishing You Were Here",
-        "url": "library/mp3/song.mp3"
+        "title": "Seinfeld",
+        "url": "library/mp3/tv/Seinfeld.mp3"
     },
     {
-        "title": "Call On Me",
-        "url": "library/mp3/song.mp3"
+        "title": "The Smurfs",
+        "url": "library/mp3/tv/The-Smurfs.mp3"
     },
     {
-        "title": "Happy Man",
-        "url": "library/mp3/song.mp3"
+        "title": "Cheers",
+        "url": "library/mp3/tv/Cheers.mp3"
     },
     {
-        "title": "If You Leave Me Now",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Old Days",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Baby, What A Big Surprise",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Take Me Back To Chicago",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "No Tell Lover",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Love Me Tomorrow",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Hard To Say Im Sorry, Get Away",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Stay The Night",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Hard Habit To Break",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "You're The Inspiration",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Along Come A Woman",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Will You Still Love Me",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "If She Would Have Been Faithful...",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Look Away",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "What Kind Of Man Would I Be",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "We Can Last Forever",
-        "url": "library/mp3/song.mp3"
-    },
-    {
-        "title": "Chasin The Wind",
-        "url": "library/mp3/song.mp3"
+        "title": "The Flintstones",
+        "url": "library/mp3/tv/The-Flintstones.mp3"
     }]
 }]

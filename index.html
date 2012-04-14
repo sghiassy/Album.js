@@ -21,7 +21,7 @@
 		
 		<ol class="tracks">
 			<% _.each(tracks, function(track) { %>
-			<li><%= track.title %></li>
+			<li class="track"><%= track.title %></li>
 			<% }); %>
 		</ol>
 	</script>
@@ -30,14 +30,16 @@
 		<ul class="albums"></ul>
 	</script>
 	<script type="text/template" id="playlist-template">
-		<h1>Playlist</h1>
-		<nav>
-			<button class="control play">Play</button>
-			<button class="control pause">Pause</button>
-			<button class="control prev">Prev</button>
-			<button class="control next">Next</button>
-		</nav>
-		<ul class="albums"></ul>
+		<div id="playlist" style="display: none;">
+			<h1>Playlist</h1>
+			<nav>
+				<button class="control play">Play</button>
+				<button class="control pause">Pause</button>
+				<button class="control prev">Prev</button>
+				<button class="control next">Next</button>
+			</nav>
+			<ul class="albums"></ul>
+		</div>
 	</script>
 </head>
 <body>

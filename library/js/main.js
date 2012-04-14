@@ -3,11 +3,26 @@ $(document).ready(function() {
 (function($) {
 	
 	//Adding album object to global window for dev purposes
-	window.Album = Backbone.Model.extend({});
+	window.Album = Backbone.Model.extend({
+		isFirstTrack: function(index) {
+            return index == 0;
+        },
+
+        isLastTrack: function(index) {
+            return index >= this.get('tracks').length - 1;
+        },
+
+        trackUrlAtIndex: function(index) {
+            if (this.get('tracks').length >= index) {
+                return this.get('tracks')[index].url;
+            }
+            return null;
+        }
+    });
 
 	window.Albums = Backbone.Collection.extend({
 		model: Album,
-		url: 'albums.json' //hardcoding REST API for now
+		url: 'file:///Users/sghiassy/Documents/Dev/2012/Album.js/albums.json' //hardcoding REST API for now
 	});
 
 	window.Playlist = Albums.extend({
@@ -44,9 +59,17 @@ $(document).ready(function() {
 		currentAlbum: function() {
 			return this.playlist.at(this.get('currentAlbumIndex'));
 		},
+		currentTrack: function() {
+			return this.get('currentTrackIndex');
+		},
 		currentTrackUrl: function() {
+			console.log('currentTrackUrl called');
 			var album = this.currentAlbum();
-			return album.trackUrlAtIndex(this.get('currentTrackIndex'));	
+			if(album) {
+				return album.trackUrlAtIndex(this.get('currentTrackIndex'));
+			} else {
+				return null;
+			}
 		},
 		nextTrack: function() {
             var currentTrackIndex = this.get('currentTrackIndex'),
@@ -79,6 +102,7 @@ $(document).ready(function() {
             currentAlbumIndex = this.get('currentAlbumIndex'),
             lastModelIndex = 0;
             if (this.currentAlbum().isFirstTrack(currentTrackIndex)) {
+            	/*debugger;
                 if (this.playlist.isFirstAlbum(currentAlbumIndex)) {
                     lastModelIndex = this.playlist.models.length - 1;
                     this.set({
@@ -88,7 +112,7 @@ $(document).ready(function() {
                     this.set({
                         'currentAlbumIndex': currentAlbumIndex - 1
                     });
-                }
+                }*/
                 // In either case, go to last track on album
                 var lastTrackIndex =
                 this.currentAlbum().get('tracks').length - 1;
@@ -142,20 +166,52 @@ $(document).ready(function() {
 			'click .queue.remove': 'removeFromPlaylist'
 		},
 		intialize: function() {
-			_.bindAll(this, 'render', 'remove');
+			_.bindAll(this, 
+							'render', 
+							'remove',
+							'updateState',
+							'updateTrack');
+							
 			this.model.bind('remove', this.remove);
 		},
 		removeFromPlaylist: function() {
 			console.log('removeFromPlaylist function called', this, this.model);
 			this.remove(this.model);
+		},
+		updateState: function() {
+			var isAlbumCurrent = (this.player.currentAlbum() === this.model);
+			$(this.el).toggleClass('current', isAlbumCurrent);
+		},
+
+		updateTrack: function() {
+			var isAlbumCurrent = (this.player.currentAlbum() === this.model);
+			if (isAlbumCurrent) {
+				var currentTrackIndex = this.player.get('currentTrackIndex');
+				this.$("li").each(function(index, el) {
+					$(el).toggleClass('current', index == currentTrackIndex);
+				});
+			}
+			this.updateState();
 		}
 	});
 
 	window.PlaylistView = Backbone.View.extend({
 		tagName: 'section',
 		className: 'playlist',
+		events: {
+			'click .play': 'play',
+			'click .pause': 'pause',
+			'click .next': 'nextTrack',
+			'click .prev': 'prevTrack',
+			'click .track': 'directPlay',
+		},
 		initialize: function() {
-			_.bindAll(this, 'render', 'renderAlbum', 'queueAlbum');
+			_.bindAll(this, 'render',
+                'renderAlbum',
+                'updateState',
+                'updateTrack',
+                'queueAlbum',
+                'directPlay');
 			this.template = _.template($('#playlist-template').html());
 			
 			this.collection.bind('refresh', this.render);
@@ -163,29 +219,90 @@ $(document).ready(function() {
 
 			
 			this.player = this.options.player;
-			this.library = this.options.library;
+			this.player.bind('change:state', this.updateState);
+			this.player.bind('change:currentTrackIndex', this.updateTrack);
+			this.createAudio();
 			
+			this.library = this.options.library;
 			this.library.bind('select', this.queueAlbum);
 			
 		},
+		createAudio: function() {
+			this.audio = new Audio();
+		},
+
 		render: function() {
 			$(this.el).html(this.template(this.player.toJSON()));
-			this.$('button.play').toggle(this.player.isStopped());
-			this.$('button.pause').toggle(this.player.isPlaying());
+			this.collection.each(this.renderAlbum);
+
+			this.updateState();
 			return this;
 		},
-		queueAlbum: function(album) {
-			console.log('queue album called');
-			this.collection.add(album);
-		},
+
 		renderAlbum: function(album) {
-			console.log('render album called', this);
+			this.$('div').eq(0).css({display: 'block'});
 			var view = new PlaylistAlbumView({
 				model: album,
 				player: this.player,
 				playlist: this.collection
 			});
-			this.$('ul').append(view.render().el);
+			this.$("ul").append(view.render().el);
+		},
+
+		updateState: function() {
+			this.updateTrack();
+			this.$("button.play").toggle(this.player.isStopped());
+			this.$("button.pause").toggle(this.player.isPlaying());
+		},
+
+		updateTrack: function() {
+			this.audio.src = this.player.currentTrackUrl();
+			if (this.player.get('state') == 'play') {
+				this.audio.play();
+			} else {
+				this.audio.pause();
+			}
+		},
+
+		queueAlbum: function(album) {
+			this.collection.add(album);
+		},
+
+		play: function() {
+			this.player.play();
+			this.toggleClass();
+		},
+
+		pause: function() {
+			this.player.pause();
+			this.toggleClass();
+		},
+
+		nextTrack: function() {
+			if (this.player.get('state') == 'play') {
+				this.toggleClass();
+				this.player.nextTrack();
+				this.toggleClass();
+			} else {
+				this.player.nextTrack();
+			}
+		},
+
+		prevTrack: function() {
+			if (this.player.get('state') == 'play') {
+				this.toggleClass();
+				this.player.prevTrack();
+				this.toggleClass();
+			} else {
+				this.player.prevTrack();
+			}
+		},
+		toggleClass: function() {
+			//debugger;
+			this.$('.tracks li').eq(this.player.currentTrack()).toggleClass('currentSong');
+		},
+		directPlay: function() {
+			console.log('direct play called', this);
 		}
 	});
 
